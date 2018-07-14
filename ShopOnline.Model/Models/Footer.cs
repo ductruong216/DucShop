@@ -8,9 +8,10 @@ namespace ShopOnline.Model.Models
     public class Footer
     {
         [Key]
+        [MaxLength(50)]
         public string ID { get; set; }
+
         [Required]
         public string Content { get; set; }
-
     }
 }
