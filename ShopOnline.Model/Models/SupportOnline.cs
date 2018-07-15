@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShopOnline.Model.Models
 {
     [Table("SupportOnlines")]
- public   class SupportOnline
+    public class SupportOnline
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -40,9 +35,5 @@ namespace ShopOnline.Model.Models
         public bool Status { get; set; }
 
         public int? DisplayOrder { get; set; }
-
-
-
-
     }
 }

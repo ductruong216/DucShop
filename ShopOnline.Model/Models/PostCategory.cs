@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
 
 namespace ShopOnline.Model.Models
 {
@@ -19,7 +17,7 @@ namespace ShopOnline.Model.Models
 
         [MaxLength(256)]
         [Required]
-        [Column(TypeName ="varchar")]
+        [Column(TypeName = "varchar")]
         public string Alias { get; set; }
 
         [MaxLength(500)]
@@ -30,6 +28,7 @@ namespace ShopOnline.Model.Models
 
         [MaxLength(256)]
         public string Image { get; set; }
+
         public bool? HomeFlag { get; set; }
 
         public virtual IEnumerable<Post> Posts { get; set; }

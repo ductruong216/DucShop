@@ -10,7 +10,7 @@ namespace ShopOnline.Model.Models
         public int PostID { get; set; }
 
         [Key]
-        [Column(TypeName ="varchar"]
+        [Column(TypeName = "varchar")]
         [MaxLength(50)]
         public string TagID { get; set; }
 

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopOnline.Model.Models
@@ -17,7 +16,8 @@ namespace ShopOnline.Model.Models
 
         [ForeignKey("ProducID")]
         public virtual Product Product { get; set; }
+
         [ForeignKey("OrderID")]
-        public virtual Order Order { get; set; } 
+        public virtual Order Order { get; set; }
     }
 }

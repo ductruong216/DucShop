@@ -21,6 +21,7 @@ namespace ShopOnline.Model.Models
 
         [MaxLength(500)]
         public string Description { get; set; }
+
         public int? ParentID { get; set; }
         public int? DisplayOrder { get; set; }
 

@@ -10,10 +10,9 @@ namespace ShopOnline.Model.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string ID { get; set; }
 
-       
         public string Name { get; set; }
 
-        [Column(TypeName ="varchar")]
+        [Column(TypeName = "varchar")]
         [Required]
         [MaxLength(256)]
         public string Alias { get; set; }

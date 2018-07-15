@@ -14,7 +14,7 @@ namespace ShopOnline.Model.Models
         [Required]
         [MaxLength(256)]
         public string Name { get; set; }
-        
+
         [Required]
         [MaxLength(256)]
         public string Alias { get; set; }

@@ -20,7 +20,6 @@ namespace ShopOnline.Model.Models
         [Required]
         public string Image { get; set; }
 
-
         [MaxLength(256)]
         public string Url { get; set; }
 
