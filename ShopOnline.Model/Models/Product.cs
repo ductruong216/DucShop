@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Xml.Linq;
 
@@ -20,13 +21,13 @@ namespace ShopOnline.Model.Models
         public string Alias { get; set; }
 
         [Required]
-        public string CategoryID { get; set; }
+        public int CategoryID { get; set; }
 
         [MaxLength(256)]
         public string Image { get; set; }
 
-
-        public XElement MoreImages { get; set; }
+        [Column(TypeName ="xml")]
+        public string MoreImages { get; set; }
         public decimal Price { get; set; }
 
         public decimal? PromotionPrice { get; set; }
@@ -42,5 +43,6 @@ namespace ShopOnline.Model.Models
 
         [ForeignKey("CategoryID")]
         public virtual ProductCategory ProductCategory { get; set; }
+        public virtual IEnumerable<ProductTag> Productags { get; set; }
     }
 }

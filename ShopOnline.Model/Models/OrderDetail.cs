@@ -7,14 +7,16 @@ namespace ShopOnline.Model.Models
     public class OrderDetail
     {
         [Key]
-        public int ID { get; set; }
+        [Column(Order = 1)]
+        public int OrderID { get; set; }
 
         [Key]
+        [Column(Order = 2)]
         public int ProductID { get; set; }
 
         public int Quanlity { get; set; }
 
-        [ForeignKey("ProducID")]
+        [ForeignKey("ProductID")]
         public virtual Product Product { get; set; }
 
         [ForeignKey("OrderID")]

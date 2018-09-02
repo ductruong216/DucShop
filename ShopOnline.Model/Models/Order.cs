@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ShopOnline.Model.Models
 {
     [Table("Orders")]
-    public class Order : AuditTable
+    public class Order
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

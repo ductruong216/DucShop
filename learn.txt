@@ -1,0 +1,2 @@
+1. fix 2 key trong 1 DB
+-> them [Column(xx=1)] --> xx=2
