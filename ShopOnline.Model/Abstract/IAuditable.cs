@@ -12,6 +12,6 @@ namespace ShopOnline.Model.Models
         string MetaKeyWork { get; set; }
         string MetaDescription { get; set; }
 
-        bool status { get; set; }
+        bool Status { get; set; }
     }
 }

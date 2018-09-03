@@ -3,11 +3,11 @@ using ShopOnline.Model.Models;
 
 namespace ShopOnline.Data.Repositories
 {
-    public interface IProductCategoryRepository
+    public interface IProductCategoryRepository : IRepository<ProductCategory>
     {
     }
 
-    public class ProductCategoryRepository : BaseRepository<Product>, IProductCategoryRepository
+    public class ProductCategoryRepository : BaseRepository<ProductCategory>, IProductCategoryRepository
     {
         public ProductCategoryRepository(IDbFactory dbFactory) : base(dbFactory)
         {

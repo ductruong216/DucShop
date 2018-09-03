@@ -3,7 +3,7 @@ using ShopOnline.Model.Models;
 
 namespace ShopOnline.Data.Repositories
 {
-    public interface IVisitorStatisticRepository
+    public interface IVisitorStatisticRepository : IRepository<VisitorStatistic>
     { }
 
     public class VisitorStatisticRepository : BaseRepository<VisitorStatistic>, IVisitorStatisticRepository
