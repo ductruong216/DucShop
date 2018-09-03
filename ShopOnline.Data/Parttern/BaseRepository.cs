@@ -64,9 +64,6 @@ namespace ShopOnline.Data.Parttern
         {
             return dbSet.Count(where);
         }
-
-      
-
         public IQueryable<T> GetAll(string[] includes = null)
         {
             //HANDLE INCLUDES FOR ASSOCIATED OBJECTS IF APPLICABLE

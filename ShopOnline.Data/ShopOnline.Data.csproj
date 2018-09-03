@@ -51,6 +51,10 @@
     <Compile Include="Migrations\201809021619050_InitialDB.Designer.cs">
       <DependentUpon>201809021619050_InitialDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809031357080_InitialDB1.cs" />
+    <Compile Include="Migrations\201809031357080_InitialDB1.Designer.cs">
+      <DependentUpon>201809031357080_InitialDB1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Parttern\DbFactory.cs" />
     <Compile Include="Parttern\Disposable.cs" />
@@ -96,6 +100,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201809021619050_InitialDB.resx">
       <DependentUpon>201809021619050_InitialDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809031357080_InitialDB1.resx">
+      <DependentUpon>201809031357080_InitialDB1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

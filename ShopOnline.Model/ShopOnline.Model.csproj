@@ -56,7 +56,7 @@
     <Compile Include="Models\PostTag.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\Footer.cs" />
-    <Compile Include="Abstract\IAuditable.cs" />
+    <Compile Include="Abstract\IAuditTable.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\MenuGroup.cs" />
     <Compile Include="Models\Product.cs" />

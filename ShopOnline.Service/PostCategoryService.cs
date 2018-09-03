@@ -41,8 +41,7 @@ namespace ShopOnline.Service
         {
             return _postCategoryRepository.GetAll();
         }
-
-        IEnumerable<PostCategory> GetAllByParentId(int parentId)
+        public IEnumerable<PostCategory> GetAllByParentId(int parentId)
         {
             return _postCategoryRepository.GetMulti(x => x.Status && x.ParentID == parentId);
         }

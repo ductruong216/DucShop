@@ -6,16 +6,16 @@ namespace ShopOnline.Data.Parttern
     {
         private readonly IDbFactory dbFactory;
         private ShopDbContext dbContext;
+        private ShopDbContext DbContext { get { return dbContext ?? (dbContext = dbFactory.Init()); } }
 
         public UnitOfWork(IDbFactory dbFactory)
         {
             this.dbFactory = dbFactory;
         }
-        private ShopDbContext DbContext { get { return dbContext ?? (dbContext = dbFactory.Init()); } }
-
+   
         public void Commit()
         {
-            dbContext.SaveChanges();
+            DbContext.SaveChanges();
         }
     }
 }

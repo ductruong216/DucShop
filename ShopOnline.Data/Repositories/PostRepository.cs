@@ -1,6 +1,7 @@
 ﻿using ShopOnline.Data.Parttern;
 using ShopOnline.Model.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ShopOnline.Data.Repositories
 {

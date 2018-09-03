@@ -5,7 +5,7 @@ namespace ShopOnline.Model.Models
 {
     public abstract class AuditTable : IAuditable
     {
-        public DateTime? CreateDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
         [MaxLength(256)]
         public string CreateBy { get; set; }
