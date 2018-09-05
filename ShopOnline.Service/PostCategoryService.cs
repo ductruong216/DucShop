@@ -15,6 +15,7 @@ namespace ShopOnline.Service
         PostCategory GetById(int id);
         IEnumerable<PostCategory> GetAll();
         IEnumerable<PostCategory> GetAllByParentId(int parentId);
+        void Save();
     }
     public class PostCategoryService : IPostCategoryService
     {
@@ -46,10 +47,14 @@ namespace ShopOnline.Service
             return _postCategoryRepository.GetMulti(x => x.Status && x.ParentID == parentId);
         }
 
-
         public PostCategory GetById(int id)
         {
             return _postCategoryRepository.GetSingleById(id);
+        }
+
+        public void Save()
+        {
+            _unitOfWork.Commit();
         }
 
         public void UpdatePostCategory(PostCategory postCategory)
