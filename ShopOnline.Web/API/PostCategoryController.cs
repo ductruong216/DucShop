@@ -10,6 +10,7 @@ using ShopOnline.Model.Models;
 
 namespace ShopOnline.Web.API
 {
+    [RoutePrefix("api/postcategory")]
     public class PostCategoryController : ApiControllerBase
     {
         private readonly IPostCategoryService _postCategorySerive;
@@ -17,21 +18,14 @@ namespace ShopOnline.Web.API
         {
             _postCategorySerive = postCategoryService;
         }
-
+        [Route("getall")]
         public HttpResponseMessage Get(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
             {
-                HttpResponseMessage response = null;
-                if (ModelState.IsValid)
-                {
-                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-                }
-                else
-                {
-                    var listCategory = _postCategorySerive.GetAll();
-                    response = request.CreateResponse(HttpStatusCode.OK, listCategory);
-                }
+                var listCategory = _postCategorySerive.GetAll();
+                var response = request.CreateResponse(HttpStatusCode.OK, listCategory);
+
                 return response;
             });
         }
