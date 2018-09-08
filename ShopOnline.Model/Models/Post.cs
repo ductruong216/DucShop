@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShopOnline.Model.Models
@@ -27,11 +28,17 @@ namespace ShopOnline.Model.Models
         [MaxLength(500)]
         public string Description { get; set; }
 
+        public string Content { set; get; }
+
         public bool? HomeFlag { get; set; }
+
         public bool? HotFlag { get; set; }
+
         public int? ViewCount { get; set; }
 
         [ForeignKey("CategoryID")]
         public virtual PostCategory PostCategory { get; set; }
+
+        public virtual IEnumerable<PostTag> PostTags { set; get; }
     }
 }

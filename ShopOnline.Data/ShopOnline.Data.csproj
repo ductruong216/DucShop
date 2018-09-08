@@ -59,6 +59,10 @@
     <Compile Include="Migrations\201809051346210_AddErrorTable.Designer.cs">
       <DependentUpon>201809051346210_AddErrorTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809080839372_UpdatePostModel.cs" />
+    <Compile Include="Migrations\201809080839372_UpdatePostModel.Designer.cs">
+      <DependentUpon>201809080839372_UpdatePostModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Parttern\DbFactory.cs" />
     <Compile Include="Parttern\Disposable.cs" />
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809051346210_AddErrorTable.resx">
       <DependentUpon>201809051346210_AddErrorTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809080839372_UpdatePostModel.resx">
+      <DependentUpon>201809080839372_UpdatePostModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

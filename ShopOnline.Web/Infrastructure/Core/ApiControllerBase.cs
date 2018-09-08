@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace ShopOnline.Web.Infracstructure.Core
+namespace ShopOnline.Web.Infrastructure.Core
 {
     public class ApiControllerBase : ApiController
     {

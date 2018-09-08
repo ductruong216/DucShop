@@ -1,2 +1,9 @@
 1. fix 2 key trong 1 DB
 -> them [Column(xx=1)] --> xx=2
+
+--Lesson14 AutoMapper
+Step 1: Setup library from Nuget package
+step 2: Create ViewModels following Model
+step 3: Create MapperConfiguration file to config
+step 4: Create update component from ViewModel to Model
+step 5: Mapping

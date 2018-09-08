@@ -1,36 +1,42 @@
-﻿using ShopOnline.Web.Infracstructure.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using AutoMapper;
+using ShopOnline.Model.Models;
+using ShopOnline.Service;
+using ShopOnline.Web.Infrastructure.Core;
+using ShopOnline.Web.Models;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using ShopOnline.Service;
-using ShopOnline.Model.Models;
+using ShopOnline.Web.Infrastructure.Extension;
+using System.Collections.Generic;
 
 namespace ShopOnline.Web.API
 {
     [RoutePrefix("api/postcategory")]
     public class PostCategoryController : ApiControllerBase
     {
-        private readonly IPostCategoryService _postCategorySerive;
-        public PostCategoryController(IErrorService errorService, IPostCategoryService postCategoryService) : base(errorService)
+        private readonly IPostCategoryService _postCategoryService;
+
+        public PostCategoryController(IErrorService errorService, IPostCategoryService postCategoryService) :
+            base(errorService)
         {
-            _postCategorySerive = postCategoryService;
+            _postCategoryService = postCategoryService;
         }
+
         [Route("getall")]
         public HttpResponseMessage Get(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
             {
-                var listCategory = _postCategorySerive.GetAll();
-                var response = request.CreateResponse(HttpStatusCode.OK, listCategory);
+                var listCategory = _postCategoryService.GetAll();
+                var listCategoryViewModel = Mapper.Map<List<PostCategoryViewModel>>(listCategory);
+                var response = request.CreateResponse(HttpStatusCode.OK, listCategoryViewModel);
 
                 return response;
             });
         }
 
-        public HttpResponseMessage Post(HttpRequestMessage request, PostCategory postCategory)
+        [Route("add")]
+        public HttpResponseMessage Post(HttpRequestMessage request, PostCategoryViewModel postCategoryVM)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -41,15 +47,21 @@ namespace ShopOnline.Web.API
                 }
                 else
                 {
-                    _postCategorySerive.AddPostCategory(postCategory);
-                    _postCategorySerive.Save();
+                    var newPostCategory = new PostCategory();
+                    newPostCategory.UpdatePostCategory(postCategoryVM);
+
+                    _postCategoryService.AddPostCategory(newPostCategory);
+                    _postCategoryService.Save();
+
                     response = request.CreateResponse(HttpStatusCode.Created);
                 }
                 return response;
             });
         }
 
-        public HttpResponseMessage Put(HttpRequestMessage request, PostCategory postCategory)
+        [Route("update")]
+
+        public HttpResponseMessage Put(HttpRequestMessage request, PostCategoryViewModel postCategoryVM)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -60,15 +72,19 @@ namespace ShopOnline.Web.API
                 }
                 else
                 {
-                    _postCategorySerive.UpdatePostCategory(postCategory);
-                    _postCategorySerive.Save();
+                    var postCategoryDb = _postCategoryService.GetById(postCategoryVM.ID);
+                    postCategoryDb.UpdatePostCategory(postCategoryVM);
+                    _postCategoryService.UpdatePostCategory(postCategoryDb);
+                    _postCategoryService.Save();
+
                     response = request.CreateResponse(HttpStatusCode.OK);
                 }
                 return response;
             });
         }
 
-        public HttpResponseMessage Put(HttpRequestMessage request, int id)
+        [Route("delete")]
+        public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -79,8 +95,8 @@ namespace ShopOnline.Web.API
                 }
                 else
                 {
-                    _postCategorySerive.DeletePostCategoryById(id);
-                    _postCategorySerive.Save();
+                    _postCategoryService.DeletePostCategoryById(id);
+                    _postCategoryService.Save();
                     response = request.CreateResponse(HttpStatusCode.OK);
                 }
                 return response;
