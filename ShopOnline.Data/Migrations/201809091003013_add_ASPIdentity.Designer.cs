@@ -7,13 +7,13 @@ namespace ShopOnline.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddErrorTable : IMigrationMetadata
+    public sealed partial class add_ASPIdentity : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddErrorTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(add_ASPIdentity));
         
         string IMigrationMetadata.Id
         {
-            get { return "201809051346210_AddErrorTable"; }
+            get { return "201809091003013_add_ASPIdentity"; }
         }
         
         string IMigrationMetadata.Source

@@ -3,10 +3,21 @@ namespace ShopOnline.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialDB : DbMigration
+    public partial class InitDatabase : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Errors",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Message = c.String(),
+                        StackTrace = c.String(),
+                        CreatedDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
+            
             CreateTable(
                 "dbo.Footers",
                 c => new
@@ -91,13 +102,13 @@ namespace ShopOnline.Data.Migrations
                         HomeFlag = c.Boolean(),
                         HotFlag = c.Boolean(),
                         ViewCount = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreatedDate = c.DateTime(),
                         CreateBy = c.String(maxLength: 256),
                         UpdateDate = c.DateTime(),
                         UpdateBy = c.String(maxLength: 256),
                         MetaKeyWork = c.String(),
                         MetaDescription = c.String(),
-                        status = c.Boolean(nullable: false),
+                        Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("dbo.ProductCategories", t => t.CategoryID, cascadeDelete: true)
@@ -115,13 +126,13 @@ namespace ShopOnline.Data.Migrations
                         DisplayOrder = c.Int(),
                         Image = c.String(maxLength: 256),
                         HomeFlag = c.Boolean(),
-                        CreateDate = c.DateTime(),
+                        CreatedDate = c.DateTime(),
                         CreateBy = c.String(maxLength: 256),
                         UpdateDate = c.DateTime(),
                         UpdateBy = c.String(maxLength: 256),
                         MetaKeyWork = c.String(),
                         MetaDescription = c.String(),
-                        status = c.Boolean(nullable: false),
+                        Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -149,13 +160,13 @@ namespace ShopOnline.Data.Migrations
                         DisplayOrder = c.Int(),
                         Image = c.String(maxLength: 256),
                         HomeFlag = c.Boolean(),
-                        CreateDate = c.DateTime(),
+                        CreatedDate = c.DateTime(),
                         CreateBy = c.String(maxLength: 256),
                         UpdateDate = c.DateTime(),
                         UpdateBy = c.String(maxLength: 256),
                         MetaKeyWork = c.String(),
                         MetaDescription = c.String(),
-                        status = c.Boolean(nullable: false),
+                        Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -169,16 +180,17 @@ namespace ShopOnline.Data.Migrations
                         CategoryID = c.Int(nullable: false),
                         Image = c.String(maxLength: 256),
                         Description = c.String(maxLength: 500),
+                        Content = c.String(),
                         HomeFlag = c.Boolean(),
                         HotFlag = c.Boolean(),
                         ViewCount = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreatedDate = c.DateTime(),
                         CreateBy = c.String(maxLength: 256),
                         UpdateDate = c.DateTime(),
                         UpdateBy = c.String(maxLength: 256),
                         MetaKeyWork = c.String(),
                         MetaDescription = c.String(),
-                        status = c.Boolean(nullable: false),
+                        Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("dbo.PostCategories", t => t.CategoryID, cascadeDelete: true)
@@ -311,6 +323,7 @@ namespace ShopOnline.Data.Migrations
             DropTable("dbo.Menus");
             DropTable("dbo.MenuGroups");
             DropTable("dbo.Footers");
+            DropTable("dbo.Errors");
         }
     }
 }
